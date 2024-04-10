@@ -11,13 +11,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final Map<int, String> _resultsMap = Map.from({
+    0: 'cara',
+    1: 'coroa',
+  });
+
   void _navigateToPlayScreen() {
-    int randomNumber = Random().nextInt(2);
+    int randomNumber = Random().nextInt(_resultsMap.keys.length);
+    String result = _resultsMap[randomNumber]!;
 
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (ctx) => PlayScreen(randomNumber: randomNumber),
+          builder: (ctx) => PlayScreen(result: result),
       ),
     );
   }

@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 
 class PlayScreen extends StatefulWidget {
-  const PlayScreen({super.key, required this.randomNumber});
+  const PlayScreen({super.key, required this.result});
 
-  final int randomNumber;
+  final String result;
 
   @override
   State<PlayScreen> createState() => _PlayScreenState();
 }
 
 class _PlayScreenState extends State<PlayScreen> {
-  final Map<int, String> _resultsMap = Map.from({
-    0: 'cara',
-    1: 'coroa',
-  });
-
   void _returnToHome() {
     Navigator.pop(context);
   }
@@ -30,7 +25,7 @@ class _PlayScreenState extends State<PlayScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('images/moeda_${_resultsMap[widget.randomNumber]}.png'),
+                Image.asset('images/moeda_${widget.result}.png'),
                 Padding(
                     padding: const EdgeInsets.only(top: 72),
                     child: GestureDetector(
