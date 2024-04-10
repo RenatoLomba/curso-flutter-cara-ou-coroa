@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cara_ou_coroa/views/play.dart';
 import 'package:flutter/material.dart';
 
@@ -10,16 +12,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   void _navigateToPlayScreen() {
+    int randomNumber = Random().nextInt(2);
+
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (ctx) => const PlayScreen())
+      MaterialPageRoute(
+          builder: (ctx) => PlayScreen(randomNumber: randomNumber),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 97, 189, 140),
+      backgroundColor: const Color(0xff61bd8c), // hex: 0xff<hexadecimal code>
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(16),
